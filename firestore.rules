@@ -1,0 +1,21 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper function to check if user is authenticated and has correct domain
+    function isAuthenticated() {
+      return request.auth != null && request.auth.token.email.matches('.*@sahyadri[.]edu[.]in');
+    }
+
+    match /users/{userId} {
+      allow read: if isAuthenticated();
+      allow write: if isAuthenticated() && request.auth.uid == userId;
+    }
+
+    match /resources/{resourceId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated();
+      allow update: if isAuthenticated() && (request.auth.uid == resource.data.contributorId || resource.data.likeCount > resource.data.likeCount - 1 || resource.data.viewCount > resource.data.viewCount - 1); // Allow likes/views updates
+    }
+  }
+}
