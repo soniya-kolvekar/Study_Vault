@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { SideCar } from "@/components/ai/SideCar";
+import { Footer } from "@/components/ui/Footer"; // Import Footer
 
 import { Inter } from "next/font/google"; // 1
 
@@ -23,6 +24,7 @@ export default function RootLayout({
         className={`${inter.className} antialiased`}
       >
         {children}
+        <Footer />
         <SideCar />
       </body>
     </html>

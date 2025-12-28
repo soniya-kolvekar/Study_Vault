@@ -2,10 +2,14 @@
 
 import { GlassCard } from "@/components/ui/GlassCard";
 import { SUBJECTS } from "@/lib/constants";
+import { db } from "@/lib/firebase";
+import { collection, onSnapshot, query, where } from "firebase/firestore";
 import { motion } from "framer-motion";
-import { Book, ChevronLeft } from "lucide-react";
+import { Book, ChevronLeft, Loader2 } from "lucide-react";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
+
+import { useEffect, useState } from "react";
 
 export default function SubjectPage() {
     const params = useParams();
@@ -13,8 +17,37 @@ export default function SubjectPage() {
     const dept = params?.dept as string;
     const sem = params?.sem as string;
 
-    // Fallback for demo
-    const subjects = SUBJECTS[`${dept}-${sem}`] || ["Subject 1", "Subject 2", "Subject 3", "Subject 4", "Subject 5"];
+    // Dynamic Subjects State
+    const [subjects, setSubjects] = useState<string[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        if (!dept || !sem) return;
+
+        // Fetch subjects from Firestore (dynamic)
+        const q = query(
+            collection(db, "resources"),
+            where("department", "==", dept),
+            where("semester", "==", Number(sem)),
+            where("status", "==", "approved")
+        );
+
+        const unsubscribe = onSnapshot(q, (snapshot) => {
+            const dynamicSubjects = new Set<string>();
+            snapshot.forEach(doc => {
+                if (doc.data().subject) dynamicSubjects.add(doc.data().subject);
+            });
+
+            // Merge with default static subjects
+            const defaultSubjects = SUBJECTS[`${dept}-${sem}`] || [];
+            const merged = Array.from(new Set([...defaultSubjects, ...Array.from(dynamicSubjects)]));
+
+            setSubjects(merged.sort());
+            setLoading(false);
+        });
+
+        return () => unsubscribe();
+    }, [dept, sem]);
 
     return (
         <div className="min-h-screen p-8 pt-24">

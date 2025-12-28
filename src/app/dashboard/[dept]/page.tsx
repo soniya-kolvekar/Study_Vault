@@ -24,7 +24,11 @@ export default function SemesterPage() {
                 </div>
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    {SEMESTERS.map((sem) => (
+                    {SEMESTERS.filter(sem => {
+                        if (dept === 'fy') return [1, 2].includes(sem);
+                        if (dept === 'mba') return [1, 2, 3, 4].includes(sem);
+                        return [3, 4, 5, 6, 7, 8].includes(sem);
+                    }).map((sem) => (
                         <Link key={sem} href={`/dashboard/${dept}/${sem}`}>
                             <GlassCard className="h-40 flex flex-col items-center justify-center gap-4 group hover:border-pink-500/50">
                                 <div className="p-3 rounded-full bg-pink-500/20 group-hover:bg-pink-500/30 transition-colors">

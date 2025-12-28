@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Student Vault (Study Vault)
 
-## Getting Started
+A centralized resource sharing platform for students to upload, access, and manage study materials like notes, question papers, and manuals.
 
-First, run the development server:
+## Project Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**Student Vault** is built to streamline the distribution of academic resources. It features a modern, glassmorphic UI, robust admin moderation tools, and efficient file handling including automatic PDF generation and compression.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technology Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Frontend**: Next.js 14 (App Router)
+- **Styling**: TailwindCSS (Custom configuration) & Framer Motion (Animations)
+- **Backend/Database**: Firebase Firestore
+- **Authentication**: Firebase Authentication
+- **Storage**: Cloudinary (Optimized for documents)
+- **PDF Generation**: jsPDF (Client-side image-to-PDF conversion)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Key Features
 
-## Learn More
+- **Resource Upload**: Students can upload images (converted to PDF automatically) or native PDF files.
+- **Dynamic Organization**: Resources are automatically organized by Department, Semester, and Subject.
+- **Admin Dashboard**: Moderators can approve/reject uploads and delete invalid resources.
+- **Smart Views**:
+    - **PDF Viewer**: Embedded viewer with same-tab navigation.
+    - **View Tracking**: Real-time view counters for trending resources.
+- **Responsive Design**: Fully optimized for mobile and desktop screens.
 
-To learn more about Next.js, take a look at the following resources:
+## Setup Instructions
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1.  Clone the repository.
+2.  Install dependencies:
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
+3.  Configure Environment Variables (`.env.local`):
+    ```env
+    NEXT_PUBLIC_FIREBASE_API_KEY=your_key
+    NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_domain
+    NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_id
+    NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_bucket
+    NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_id
+    NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
+    NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=your_cloud_name
+    NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET=your_preset
+    ```
+4.  Run the development server:
+    ```bash
+    npm run dev
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Logic Details
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Departments**: Supported departments include CS, IS, EC, ME, RB, AI, MBA, and First Year.
+- **Semesters**: Logic filters semesters based on department (e.g., FY: Sem 1-2, MBA: Sem 1-4).
+- **Subjects**: Dropdowns are populated dynamically from existing database records + default constants.

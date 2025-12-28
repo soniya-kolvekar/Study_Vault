@@ -3,8 +3,10 @@ export const DEPARTMENTS = [
     { id: "is", name: "Information Science", icon: "Database" },
     { id: "ec", name: "Electronics & Comm", icon: "Radio" },
     { id: "me", name: "Mechanical", icon: "Wrench" },
-    { id: "cv", name: "Civil Engineering", icon: "HardHat" },
+    { id: "rb", name: "Robotics", icon: "Bot" },
     { id: "ai", name: "AI & ML", icon: "Brain" },
+    { id: "mba", name: "MBA", icon: "Briefcase" },
+    { id: "fy", name: "First Year", icon: "GraduationCap" },
 ];
 
 export const SEMESTERS = [1, 2, 3, 4, 5, 6, 7, 8];

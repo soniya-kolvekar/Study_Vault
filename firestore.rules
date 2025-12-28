@@ -13,9 +13,13 @@ service cloud.firestore {
     }
 
     match /resources/{resourceId} {
+      // Allow anyone with a valid email to read and create resources
       allow read: if isAuthenticated();
       allow create: if isAuthenticated();
-      allow update: if isAuthenticated() && (request.auth.uid == resource.data.contributorId || resource.data.likeCount > resource.data.likeCount - 1 || resource.data.viewCount > resource.data.viewCount - 1); // Allow likes/views updates
+      
+      // For now, allow any authenticated user to act as admin (approve/reject/delete)
+      // TODO: PROD - Restrict this to specific admin UIDs or emails
+      allow update, delete: if isAuthenticated();
     }
   }
 }
