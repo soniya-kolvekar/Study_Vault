@@ -47,10 +47,10 @@ export default function Home() {
             <ShieldCheck className="w-4 h-4" />
             <span>Exclusively for Sahyadri Students</span>
           </motion.div>
-          <h1 className="text-6xl md:text-8xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-br from-white via-violet-100 to-violet-300 drop-shadow-lg">
+          <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-br from-white via-violet-100 to-violet-300 drop-shadow-lg px-4">
             STUDY<span className="text-violet-500">VAULT</span>
           </h1>
-          <p className="text-xl md:text-2xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl lg:text-2xl text-slate-300 max-w-2xl mx-auto leading-relaxed px-4">
             The ultimate academic resource hub. <br />
             <span className="text-violet-400 font-semibold">Share</span>, <span className="text-pink-400 font-semibold">Discover</span>, and <span className="text-cyan-400 font-semibold">Ace</span> your exams.
           </p>

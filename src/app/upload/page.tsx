@@ -5,7 +5,7 @@ import { DEPARTMENTS, SEMESTERS, SUBJECTS } from "@/lib/constants";
 import { auth, db } from "@/lib/firebase";
 import { addDoc, collection, onSnapshot, query, serverTimestamp, where } from "firebase/firestore";
 import { motion } from "framer-motion";
-import { CloudUpload, FileImage, FileText, Loader2, X } from "lucide-react";
+import { ChevronLeft, CloudUpload, FileImage, FileText, Loader2, X } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { onAuthStateChanged, User } from "firebase/auth";
@@ -290,6 +290,13 @@ export default function UploadPage() {
                 animate={{ opacity: 1, scale: 1 }}
                 className="w-full max-w-3xl"
             >
+                <button
+                    onClick={() => router.back()}
+                    className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors mb-4"
+                >
+                    <ChevronLeft className="w-5 h-5" />
+                    Back
+                </button>
                 <GlassCard className="p-8">
                     <div className="text-center mb-8">
                         <h1 className="text-3xl font-bold text-white mb-2">Contribute Resources</h1>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { SideCar } from "@/components/ai/SideCar";
+import { ChatBot } from "@/components/ui/ChatBot";
 import { Footer } from "@/components/ui/Footer"; // Import Footer
 
 import { Inter } from "next/font/google"; // 1
@@ -25,7 +25,7 @@ export default function RootLayout({
       >
         {children}
         <Footer />
-        <SideCar />
+        <ChatBot />
       </body>
     </html>
   );

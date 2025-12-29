@@ -56,13 +56,13 @@ export default function SubjectPage() {
                 animate={{ opacity: 1, y: 0 }}
                 className="max-w-6xl mx-auto space-y-8"
             >
-                <button
-                    onClick={() => router.back()}
-                    className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors mb-4"
+                <Link
+                    href={`/dashboard/${dept}`}
+                    className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors mb-4 w-fit"
                 >
                     <ChevronLeft className="w-5 h-5" />
                     Back to Semesters
-                </button>
+                </Link>
 
                 <div>
                     <h1 className="text-4xl font-bold text-white mb-2">Select Subject</h1>

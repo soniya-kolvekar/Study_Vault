@@ -1,9 +1,9 @@
 export const DEPARTMENTS = [
     { id: "cs", name: "Computer Science", icon: "Laptop" },
     { id: "is", name: "Information Science", icon: "Database" },
-    { id: "ec", name: "Electronics & Comm", icon: "Radio" },
+    { id: "ec", name: "Electronics and Communication", icon: "Radio" },
     { id: "me", name: "Mechanical", icon: "Wrench" },
-    { id: "rb", name: "Robotics", icon: "Bot" },
+    { id: "rb", name: "Robotics and Automation", icon: "Bot" },
     { id: "ai", name: "AI & ML", icon: "Brain" },
     { id: "mba", name: "MBA", icon: "Briefcase" },
     { id: "fy", name: "First Year", icon: "GraduationCap" },

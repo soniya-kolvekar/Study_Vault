@@ -4,7 +4,7 @@ import { GlassCard } from "@/components/ui/GlassCard";
 import { auth, db } from "@/lib/firebase";
 import { onAuthStateChanged, User } from "firebase/auth";
 import { collection, deleteDoc, doc, getDoc, onSnapshot, query, updateDoc, where } from "firebase/firestore";
-import { Check, Edit2, FileText, Loader2, Save, X } from "lucide-react";
+import { Check, ChevronLeft, Edit2, FileText, Loader2, Save, X } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -138,6 +138,13 @@ export default function AdminPage() {
     return (
         <div className="min-h-screen p-8 pt-24">
             <div className="max-w-5xl mx-auto space-y-8">
+                <button
+                    onClick={() => router.back()}
+                    className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors"
+                >
+                    <ChevronLeft className="w-5 h-5" />
+                    Back
+                </button>
                 <div className="flex justify-between items-end">
                     <div>
                         <h1 className="text-3xl font-bold text-white mb-2">Admin Dashboard</h1>

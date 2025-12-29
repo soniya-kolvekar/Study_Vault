@@ -3,7 +3,7 @@
 import { GlassCard } from "@/components/ui/GlassCard";
 import { SEMESTERS } from "@/lib/constants";
 import { motion } from "framer-motion";
-import { GraduationCap } from "lucide-react";
+import { ChevronLeft, GraduationCap } from "lucide-react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 
@@ -18,6 +18,14 @@ export default function SemesterPage() {
                 animate={{ opacity: 1, y: 0 }}
                 className="max-w-6xl mx-auto space-y-8"
             >
+                <Link
+                    href="/dashboard"
+                    className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors mb-4 w-fit"
+                >
+                    <ChevronLeft className="w-5 h-5" />
+                    Back to Departments
+                </Link>
+
                 <div>
                     <h1 className="text-4xl font-bold text-white mb-2">Select Semester</h1>
                     <p className="text-slate-400">Which semester are you in?</p>
