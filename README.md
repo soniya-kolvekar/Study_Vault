@@ -80,7 +80,6 @@ StudyVault is a **real-time, modern web application** designed to revolutionize 
 ## 👥 Contributors
 
 - **Soniya Kolvekar** (Team Lead)
-- **Adarsh** (Full Stack Developer & AI Integration)
 - **Tanish Poojari**
 - **Saishree Shet**
 - **Varun**
