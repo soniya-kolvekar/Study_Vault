@@ -1,57 +1,89 @@
-# Student Vault (Study Vault)
+# 🚀 StudyVault
+> **The Ultimate Academic Resource Hub for Sahyadri College of Engineering**
 
-A centralized resource sharing platform for students to upload, access, and manage study materials like notes, question papers, and manuals.
+![StudyVault Banner](https://img.shields.io/badge/StudyVault-v1.0-violet?style=for-the-badge&logo=vercel)
+![Next.js](https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![Firebase](https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-0F172A?style=for-the-badge&logo=tailwindcss)
+![Gemini AI](https://img.shields.io/badge/Gemini_AI-Integration-blue?style=for-the-badge)
 
-## Project Overview
+StudyVault is a **real-time, modern web application** designed to revolutionize how students share and access academic resources. From lecture notes to question papers, everything is organized, searchable, and enhanced by an **embedded AI Study Assistant**.
 
-**Student Vault** is built to streamline the distribution of academic resources. It features a modern, glassmorphic UI, robust admin moderation tools, and efficient file handling including automatic PDF generation and compression.
+🔗 **Live Demo:** [https://study-vault-beige.vercel.app](https://study-vault-beige.vercel.app)
 
-## Technology Stack
+---
 
-- **Frontend**: Next.js 14 (App Router)
-- **Styling**: TailwindCSS (Custom configuration) & Framer Motion (Animations)
-- **Backend/Database**: Firebase Firestore
-- **Authentication**: Firebase Authentication
-- **Storage**: Cloudinary (Optimized for documents)
-- **PDF Generation**: jsPDF (Client-side image-to-PDF conversion)
+## ✨ Key Features
 
-## Key Features
+### 🧠 **AI-Powered Study Companion (New!)**
+- **Smart Context**: The AI assistant knows exactly which folder or subject you are viewing.
+- **Document Analysis**: Click "View File" and ask the AI to **summarize**, **extract key topics**, or **quiz you** on the content—instantly.
+- **Deep Integration**: Powered by Google's **Gemini Pro**, capable of reading full PDFs directly from the server.
+- **Persistent Chat**: Your study conversations are saved to your profile for future reference.
 
-- **Resource Upload**: Students can upload images (converted to PDF automatically) or native PDF files.
-- **Dynamic Organization**: Resources are automatically organized by Department, Semester, and Subject.
-- **Admin Dashboard**: Moderators can approve/reject uploads and delete invalid resources.
-- **Smart Views**:
-    - **PDF Viewer**: Embedded viewer with same-tab navigation.
-    - **View Tracking**: Real-time view counters for trending resources.
-- **Responsive Design**: Fully optimized for mobile and desktop screens.
+### 📚 **Resource Management**
+- **Dynamic Organization**: Resources are automatically sorted by Department, Semester, and Subject.
+- **Universal Access**: Upload native PDFs or images (automatically converted to PDF).
+- **Real-Time Sync**: New uploads, likes, and view counts update instantly across all connected devices using Firestore listeners.
 
-## Setup Instructions
+### ⚡ **Modern Experience**
+- **Glassmorphism UI**: A premium, dark-mode aesthetic built with Tailwind CSS and Framer Motion.
+- **Interactive Engagement**: "Confetti" animations on likes and interactive cards.
+- **Mobile First**: Fully responsive design that works perfectly on phones and tablets.
 
-1.  Clone the repository.
-2.  Install dependencies:
+### 🛡️ **Secure & Moderated**
+- **Google Authentication**: Seamless sign-in with institutional email support.
+- **Role-Based Access**: Specialized Admin dashboard for moderating content and managing resources.
+- **Saved Collection**: Bookmark important notes to your personal profile.
+
+---
+
+## 🛠️ Technology Stack
+
+- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) + [Framer Motion](https://www.framer.com/motion/)
+- **Backend & Auth**: [Firebase](https://firebase.google.com/) (Firestore, Auth)
+- **AI Engine**: [Google Gemini API](https://ai.google.dev/)
+- **Storage**: Cloudinary (High-performance asset delivery)
+
+---
+
+## 🚀 Getting Started Locally
+
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/soniya-kolvekar/Study_Vault.git
+    cd Study_Vault
+    ```
+
+2.  **Install dependencies**
     ```bash
     npm install
-    # or
-    yarn install
     ```
-3.  Configure Environment Variables (`.env.local`):
+
+3.  **Set up Environment Variables**
+    Create a `.env.local` file with your keys:
     ```env
-    NEXT_PUBLIC_FIREBASE_API_KEY=your_key
-    NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_domain
-    NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_id
-    NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_bucket
-    NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_id
-    NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
-    NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=your_cloud_name
-    NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET=your_preset
+    NEXT_PUBLIC_FIREBASE_API_KEY=...
+    NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=...
+    NEXT_PUBLIC_FIREBASE_PROJECT_ID=...
+    GEMINI_API_KEY=...
     ```
-4.  Run the development server:
+
+4.  **Run the development server**
     ```bash
     npm run dev
     ```
 
-## Logic Details
+---
 
-- **Departments**: Supported departments include CS, IS, EC, ME, RB, AI, MBA, and First Year.
-- **Semesters**: Logic filters semesters based on department (e.g., FY: Sem 1-2, MBA: Sem 1-4).
-- **Subjects**: Dropdowns are populated dynamically from existing database records + default constants.
+## 👥 Contributors
+
+- **Soniya Kolvekar** (Team Lead)
+- **Adarsh** (Full Stack Developer & AI Integration)
+- **Tanish Poojari**
+- **Saishree Shet**
+- **Varun**
+
+---
+*Built with ❤️ for the students of Sahyadri College.*
